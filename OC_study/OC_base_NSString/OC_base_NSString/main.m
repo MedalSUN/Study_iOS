@@ -27,16 +27,45 @@ int main(int argc, const char * argv[]) {
         // 3: 对字符串中包含的判断。
         NSString *str5 = @"My name is zero";
         
-        // 以**开头
+        // 3.1:以**开头
         Boolean prefix = [str5 hasPrefix:@"M"]; // 返回值是 1。表示yes
         NSLog(@"str5是否存在前缀： %d", prefix);
-        // 以**结尾
+        // 3.2:以**结尾
         Boolean suffix = [str5 hasSuffix:@"zero"];
         NSLog(@"str5是否存在后缀： %d", suffix); // 返回值是 0。 表示no
-        // 在z已有字符串中判断是否有某一个字符（字符串）
-        NSRange range = [str5 rangeOfString:@"am"]; // struct 结构体，NSRange是一个结构体，他是基本数据类型
+        // 3.3:在已有字符串中判断是否有某一个字符（字符串）
+        NSRange range = [str5 rangeOfString:@"am"]; // struct 结构体，NSRange是一个结构体，他是基本数据类型 == 结构体可以使用点的形式直接将它获取到。
         NSLog(@"是否存在am，他的位置为, %ld", range.location); // 如果溢出，即显示的是一个非常大的数值，则表示不存在。
-        NSLog(@"是否存在am，他的长度为, %d", range.length); // 如果length为0，则表示不存在。
+        NSLog(@"是否存在am，他的长度为, %lu", range.length); // 如果length为0，则表示不存在。
+        
+        // 4: 字符串的比较
+        // 4.1:字符串内容的比较
+        NSString *str6 = @"one";
+        NSString *str7 = @"two";
+        Boolean res1 = [str6 isEqualToString:str7];
+        NSLog(@"str6和str7的内容比较结果是， %d", res1);
+        // 4.2:字符串排序的比较  【 -1:升序  0:相等  1:降序 】
+        NSString *str8 = @"onea";
+        NSString *str9 = @"oneA";
+        NSComparisonResult res2 = [str8 compare:str9]; // 是枚举类型，返回值是NSInteger
+        NSLog(@"str8和str9的排序j比较结果为： %d", res2);
+           // 注意： compare方法是区分大小写的 caseInsensitiveCompare
+        
+        
+        // 5: 字符串全部大写，小写
+        /*
+         5.1: 字符串全部大写： uppercaseString
+         5.2: 字符串全部小写： lowerxcaseString
+         5.3: 字符串首字母大写： capitalizedString
+         */
+        
+        
+        
+        
+        
+        
+        
+        
     }
     return 0;
 }
