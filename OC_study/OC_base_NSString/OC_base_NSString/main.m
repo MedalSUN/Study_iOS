@@ -61,6 +61,34 @@ int main(int argc, const char * argv[]) {
         
         
         
+        // 6: 替换字符串
+        NSString *str10 = @"I am a boy";
+        NSString *str11 = [str10 stringByReplacingOccurrencesOfString:@"boy" withString:@"girl"];
+        NSLog(@"替换后的字符串为： %@", str11);
+        
+        
+        // 7: 字符串的分割与串联（拼接）
+        // 7.1 字符串的分割
+        NSString *str12 = @"I am a boy";
+        NSArray *arr = [str12 componentsSeparatedByString:@" "];
+        NSLog(@"分割后的字符串为： %@", arr);
+        // 7.2 字符串的串接
+        NSString *str13 = [arr componentsJoinedByString:@"_"];
+        NSLog(str13);
+        
+        
+        // 8:字符串的提取
+        NSString *str14 = @"I am a student";
+        // 8.1字符串截取到哪里index[不包括index]
+        NSString *str15 = [str14 substringToIndex:3];
+        NSLog(str15);
+        // 8.2字符串从哪开始截取【包括index】
+        NSString *str16 = [str14 substringFromIndex:3];
+        NSLog(str16);
+        // 8.3 字符串截取的范围
+        NSString *str17 = [str14 substringWithRange:NSMakeRange(3, 3)];   // 使用NSMakeRange可以创建一个range范围
+        NSLog(str17); // 空格也占据一位。
+        
         
         
         
