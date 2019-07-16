@@ -32,7 +32,7 @@ int main(int argc, const char * argv[]) {
         
         // 4:获取数组元素的位置
         NSInteger index = [arr3 indexOfObject:@"Tom"];
-        NSLog(@"Tom的位置为： %ld", (long)index);  // 找不到是-1
+        // NSLog(@"Tom的位置为： %ld", (long)index);  // 找不到是-1
         
         
         
@@ -59,6 +59,69 @@ int main(int argc, const char * argv[]) {
         
         // ==================================== 注意：
         // 在NSArray 和 NSDictionary 字典和数组中的元素，必须是引用数据类型！！！ 不能是基本数据类型。
+        
+        // ===================================================================================
+        // 遍历NSArray和NSDictionary的几种方法
+        
+        // 一：遍历NSArray
+        
+        // 1: for循环遍历数组  使用下标获取数组中的某一项
+        NSArray *arr6 = @[@"Jack", @"Tom", @"Rose"];
+        for (NSInteger i = 0; i < arr6.count; i++) {
+            if (i > 0) {
+                continue;  // continue的意思为放弃本次循环，重新开始
+            }
+            if (i == 1) {
+                break; // break的意思是停止执行，并跳出本层循环体。
+            }
+            NSLog(@"数组中的每一项为： %@", arr6[i]);
+        }
+        
+        // 2: for in循环遍历数组。注意for in循环遍历出来的是数组中的每一项，而不是数组下标。
+        for (NSString *item in arr6) {
+            NSLog(@"for in数组循环中的每一项为： %@", item);
+        }
+        
+        // 3: enumerate
+        [arr6 enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            //在enumreate中使用stop代替break操作
+            if( idx == 1){
+                *stop = YES; // 使用enumerate的第三个参数来控制跳出循环
+            }
+            
+            // NSLog(@"index为： %lu", (unsigned long)idx, @"value为：%@", obj);
+            NSLog(@"index为：%d  ---  value为： %@", idx, obj);
+        }];
+        
+        
+        // 二: 遍历字典 NSDictionary
+        NSDictionary *dictTest = @{
+                               @"name": @"Jack",
+                               @"address": @"Shanghai"
+                               };
+        
+        // 1:for in循环遍历字典
+        for (NSString *key in dictTest) {
+            NSLog(@"key值为：%@, value值为： %@", key, dictTest[key]);
+        }
+        
+        // 2:使用enumerate遍历字典
+        [dictTest enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+            NSLog(@"遍历的字典的key为： %@---- value为：%@", key, obj);
+        }];
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
     }
