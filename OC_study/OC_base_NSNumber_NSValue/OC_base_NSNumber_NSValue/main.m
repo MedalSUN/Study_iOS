@@ -50,11 +50,12 @@ int main(int argc, const char * argv[]) {
          */
 
         // CGPoint p = CGPointMake(2, 3); // CGPoint是结构体，他是基本数据类型
-        
-        CGPoint test = CGPointMake(1, 2);
-        NSValue *value = [NSValue valueWithPointer:test];
+        //CGPoint test = CGPointMake(1, 2);
+        //NSValue *value = [NSValue valueWithPointer:test];
 
-
+        NSPoint test = CGPointMake(1, 2);
+        NSValue *value = [NSValue valueWithPoint:test];
+        NSLog(@"value是：%@", value);
 
 
 
